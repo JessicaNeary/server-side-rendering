@@ -1,20 +1,21 @@
 module.exports = {
-  getHomeData: getHomeData
+  getHomeData: getHomeData,
+  getDetails: getDetails
 }
+
+var repos = require('./github.js')
 
 function getHomeData () {
   return {
     title: 'Awesome title',
     headerText: 'Welcome to Awesome',
-    fruitList: [{
-      name: 'apples',
-      colour: 'red'
-    }, {
-      name: 'oranges',
-      colour: 'orange'
-    }, {
-      name: 'bananas',
-      colour: 'yellow'
-    }]
+    repoList: repos
   }
+}
+
+function getDetails (name){
+  var results = repos.filter(function (repo){
+    return repo.name === name
+  })
+  return results[0]
 }
