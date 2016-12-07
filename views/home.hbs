@@ -1,7 +1,6 @@
-{{> header}}
+{{> header }}
 
-{{#if showList}}
-  {{owner.login}}'s Respositories
+  {{author}}'s Respositories
   <ul>
     {{#each repoList}}
     <li>
@@ -11,7 +10,3 @@
     </li>
     {{/each}}
   </ul>
-  Ok, now you can <a href="/">hide the list</a>.
-{{else}}
-  <a href="/?showlist=true">Show me the list</a>, please.
-{{/if}}
